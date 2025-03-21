@@ -1,4 +1,4 @@
-# 🏭 Manufacturing Defect Analysis & Optimization Dashboard
+# 🏭 Manufacturing Defect Analysis & Optimization
 
 ## 📌 Project Overview
 This project analyzes defect rates in a simulated manufacturing environment to identify key factors influencing defects and proposes data-driven optimizations. It is designed to demonstrate proficient SQL data manipulation, visualization, and insights relevant to industry standards.
