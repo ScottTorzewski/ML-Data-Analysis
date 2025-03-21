@@ -6,7 +6,6 @@ This project analyzes defect rates in a simulated manufacturing environment to i
 ## 🎯 Objective
 - Identify key factors affecting defect rates in manufacturing.
 - Optimize production efficiency by reducing defects using SQL and machine learning.
-- Develop a dashboard for interactive defect analysis and insights.
 
 ## 🔍 Approach & Methodology
 ### 1️⃣ SQL Data Processing & Cleaning
