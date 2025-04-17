@@ -67,11 +67,11 @@ Ensure you have the following installed:
 ### 📥 Installation Steps
 1. Clone the Repository:
    ```bash
-   git clone https://github.com/ScottTorzewski/Manufacturing-Defect-Analysis.git
+   git clone https://github.com/ScottTorzewski/Manufacturing-Defect-ML-Project.git
    ```
 2. Navigate to the Project Directory:
    ```bash
-   cd Manufacturing-Defect-Analysis
+   cd Manufacture-Defect-ML-Project
    ```
 3. Install Dependencies:
    ```bash
