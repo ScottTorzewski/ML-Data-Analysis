@@ -67,7 +67,7 @@ Ensure you have the following installed:
 ### 📥 Installation Steps
 1. Clone the Repository:
    ```bash
-   git clone https://github.com/ScottTorzewski/Manufacturing-Defect-ML-Project.git
+   git clone https://github.com/ScottTorzewski/Manufacture-Defect-ML-Project.git
    ```
 2. Navigate to the Project Directory:
    ```bash
