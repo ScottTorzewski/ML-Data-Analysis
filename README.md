@@ -297,7 +297,7 @@ To validate that Random Forest’s strong performance was not the result of a fa
 <br>
 
 <p align="center">
- <img src="./images/images/5foldscore.png" alt="5foldscore" width="400" height="600"/>
+ <img src="./images/images/5foldscore.png" alt="5foldscore" width="350" height="600"/>
 </p>
 
 <br>
@@ -353,7 +353,7 @@ Permutation importance analysis showed strong agreement between Logistic Regress
 <br>
 
 <p align="center">
- <img src="./images/images/Permutations.png" alt="Permutations" width="700" height="700"/>
+ <img src="./images/images/Permutations.png" alt="Permutations" width="800" height="800"/>
 </p>
 
 <br>
