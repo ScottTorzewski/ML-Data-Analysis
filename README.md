@@ -15,7 +15,7 @@ I use a simulated dataset consisting of observations from a manufacturing proces
 The minimum, maximum, and average values are then extracted from the data to help us better understand the range for each of the parameters.
 
 <p align="center">
- <img src="./images/images/min_max.png" alt="Dataset" width="250" height="400"/>
+ <img src="./images/images/min_max.png" alt="min_max" width="250" height="400"/>
 </p>
 
 To further understand the structure of the dataset, I computed confidence intervals for the proportion of high-defect and low-defect parts. The binary target variable indicates whether a defect was present (1) or not (0). Below is the total count and percentage of each defect status type.
