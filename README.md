@@ -40,7 +40,7 @@ Out of 3,240 total parts, 2,723 were labeled as high-defect and 517 as low-defec
 <br>
 
 <p align="center">
- <img src="./images/images/classimbalance.png" alt="classimbalance" width="400" height="600"/>
+ <img src="./images/images/classimbalance.png" alt="classimbalance" width="800" height="500"/>
 </p>
 
 <br>
@@ -50,7 +50,7 @@ Since DefectStatus is either 0 or 1, plotting it directly against continuous fea
 <br>
 
 <p align="center">
- <img src="./images/images/trendline.png" alt="trendline" width="400" height="600"/>
+ <img src="./images/images/trendline.png" alt="trendline" width="600" height="800"/>
 </p>
 
 <br>
@@ -60,7 +60,7 @@ Kernel Density Estimation (KDE) plots were used to visualize how the distributio
 <br>
 
 <p align="center">
- <img src="./images/images/KDE.png" alt="KDE" width="400" height="600"/>
+ <img src="./images/images/KDE.png" alt="KDE" width="700" height="700"/>
 </p>
 
 <br>
