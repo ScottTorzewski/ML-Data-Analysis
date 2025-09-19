@@ -21,6 +21,7 @@ The minimum, maximum, and average values are then extracted from the data to hel
 To further understand the structure of the dataset, I computed confidence intervals for the proportion of high-defect and low-defect parts. The binary target variable indicates whether a defect was present (1) or not (0). Below is the total count and percentage of each defect status type.
 
 
+
 <p align="center">
  <img src="./images/images/Distribution.png" alt="distribution" width="400" height="600"/>
 </p>
