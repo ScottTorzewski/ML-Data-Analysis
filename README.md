@@ -7,6 +7,8 @@ This project evaluates three standard classification models — Logistic Regress
 ## 2️⃣ Problem Overview and Dataset
 I use a simulated dataset consisting of observations from a manufacturing process. Each record represents various metrics crucial for predicting high or low defect occurrences in production processes.
 
+<br>
+
 <p align="center">
  <img src="./images/images/dataset.png" alt="Dataset" width="300" height="600"/>
 </p>
