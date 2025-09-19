@@ -20,9 +20,11 @@ The minimum, maximum, and average values are then extracted from the data to hel
 
 To further understand the structure of the dataset, I computed confidence intervals for the proportion of high-defect and low-defect parts. The binary target variable indicates whether a defect was present (1) or not (0). Below is the total count and percentage of each defect status type.
 
+
 <p align="center">
  <img src="./images/images/Distribution.png" alt="distribution" width="400" height="600"/>
 </p>
+
 
 Out of 3,240 total parts, 2,723 were labeled as high-defect and 517 as low-defect, yielding an observed defect rate of 84.0%. The 95% confidence interval for the high-defect rate was [82.7%, 85.4%], while the interval for low-defect parts was [14.6%, 17.3%]. These results confirm a substantial class imbalance in the dataset. This imbalance has important implications for model evaluation. Metrics like accuracy would be misleading, as a model could achieve over 80% accuracy by predicting only the majority class. This further validates my decision to focus on F1 score, precision, and recall as evaluation metrics that better capture model effectiveness in imbalanced classification settings (which will be discussed later).
 
