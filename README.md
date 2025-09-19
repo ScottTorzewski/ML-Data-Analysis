@@ -287,7 +287,7 @@ The Random Forest model outperforms both Logistic Regression and Decision Tree m
 <br>
 
 <p align="center">
- <img src="./images/images/Accuracy.png" alt="Accuracy" width="600" height="400"/>
+ <img src="./images/images/Accuracy.png" alt="Accuracy" width="500" height="400"/>
 </p>
 
 <br>
