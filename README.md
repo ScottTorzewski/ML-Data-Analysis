@@ -127,18 +127,50 @@ This section evaluates three classification algorithms (Logistic Regression, Dec
 Logistic Regression (LR)
 What It Is: This is a linear model that estimates the probability of a binary outcome. In this case, it estimates the likelihood of DefectStatus = 1 (i.e., a high-defect component) as a function of multiple predictor variables. It assumes a linear relationship between the predictors and the log-odds of the outcome.
 
+<br>
+
+<p align="center">
+ <img src="./images/images/LRequation1.png" alt="LR1" width="700" height="700"/>
+</p>
+
+<br>
+
 P(Y = 1) is the predicted probability that the component is defective.
 X1​, X2… Xp are the feature values.
 B0 is the intercept, and B1… Bp are the model coefficients.
 
 We can solve for the predicted probability by applying the inverse of the logit function (the logistic function). This equation maps any linear combination of inputs into a probability between 0 and 1.
 
+<br>
+
+<p align="center">
+ <img src="./images/images/LRequation2.png" alt="LR2" width="700" height="700"/>
+</p>
+
+<br>
+
 Model Fit: All numeric and categorical features (excluding the target) were standardized using z-score normalization to ensure comparability and improve convergence.The model produced coefficients for each feature, which were exponentiated to interpret them as odds ratios. These indicate how a unit increase in each feature changes the odds of a part being defective.
+
+<br>
+
+<p align="center">
+ <img src="./images/images/coefficients.png" alt="coefficients" width="700" height="700"/>
+</p>
+
+<br>
 
 Features with odds ratios < 1 (associated with lower defect odds): QualityScore, EnergyEfficiency, WorkerProductivity, InventoryTurnover, SafetyIncidents, DowntimePercentage
 Features with odds ratios > 1 (associated with increased defect odds): All other remaining variables
 
 To assess classification behavior beyond coefficients, I examined the confusion matrix for the logistic regression model. Confusion matrices are tabular visualization tools that allow us to evaluate a model’s performance in terms of true positives, false positives, true negatives, and false negatives. These matrices helped me interpret how each model handles misclassification and whether certain models are systematically more conservative or lenient in labeling defects.
+
+<br>
+
+<p align="center">
+ <img src="./images/images/LRconfusion.png" alt="outcomes" width="700" height="700"/>
+</p>
+
+<br>
 
 The model made 39 correct predictions of low-defect parts (true negatives) and 529 correct predictions of high-defect parts (true positives). However, it also misclassified 64 low-defect parts as defective (false positives) and 16 high-defect parts as low-defect (false negatives). While performance metrics like F1 score and accuracy are discussed later, this confusion matrix highlights the model's strong ability to identify defective parts, albeit with a tendency to over-classify low-defect components as defective. 
 
