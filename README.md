@@ -77,7 +77,7 @@ I used chi-squared tests to determine if there was statistical significance for 
 
 <br>
 
-The test revealed a strong association between MaintenanceHours, ProductionVolume and DefectStatus (p < 0.05), suggesting that scheduled maintenance and the volume of  total output play a significant role in preventing or mitigating defects. In contrast, the other variables showed no significant association (p > 0.05), indicating that they are likely independent of defect occurrence in this dataset. These results were also somewhat consistent with our KDE distribution plots, which showed clear separation between high-defect and low-defect groups for MaintenanceHours and ProductionVolume – the same variables with the lowest p-values. This convergence of statistical and visual evidence strengthens the case for their predictive relevance. However, due to the limited sample size, these tests have low statistical power, meaning some real effects could go undetected. Furthermore, chi-squared tests only evaluate individual associations and ignore interactions or nonlinear effects. To account for potential interdependencies between variables and to better capture their combined predictive power, I will apply powerful model approaches.
+The test revealed a strong association between MaintenanceHours, ProductionVolume and DefectStatus (p < 0.05). This suggests the scheduled maintenance and the volume of  total output play a significant role in preventing or mitigating defects. In contrast, the other variables showed no significant association (p > 0.05), indicating that they are likely independent of defect occurrence in this dataset. These results were also somewhat consistent with our KDE distribution plots, which showed clear separation between high-defect and low-defect groups for MaintenanceHours and ProductionVolume – the same variables with the lowest p-values. This convergence of statistical and visual evidence strengthens the case for their predictive relevance. However, due to the limited sample size, these tests have low statistical power, meaning some real effects could go undetected. Furthermore, chi-squared tests only evaluate individual associations and ignore interactions or nonlinear effects. To account for potential interdependencies between variables and to better capture their combined predictive power, I will apply powerful model approaches.
 
 ## 3️⃣ Evaluation Metric
 To measure model performance, I prioritized F1 Score over simple accuracy. 
@@ -210,7 +210,7 @@ Then, I restricted the decision tree to a maximum depth of 3 to reduce overfitti
 
 <br>
 
-Feature importance analysis showed that QualityScore, DefectRate, ProductionVolume, and MaintenanceHours were the most influential predictors of defect status, suggesting these features are highly informative for rule-based classification.
+Feature importance analysis showed that QualityScore, DefectRate, ProductionVolume, and MaintenanceHours were the most influential predictors of defect status. Therefore, we can determine these features are highly informative for rule-based classification.
 
 <br>
 
@@ -239,7 +239,7 @@ Model Fit: The Random Forest classifier was trained using the same feature set, 
 <br>
 
 <p align="center">
- <img src="./images/images/5foldscore.png" alt="5foldscore" width="700" height="700"/>
+ <img src="./images/images/RFresults.png" alt="RFresults" width="400" height="700"/>
 </p>
 
 <br>
@@ -290,20 +290,52 @@ The Random Forest model outperforms both Logistic Regression and Decision Tree m
 <br>
 
 <p align="center">
- <img src="./images/images/Accuracy.png" alt="Accuracy" width="700" height="700"/>
+ <img src="./images/images/Accuracy.png" alt="Accuracy" width="500" height="500"/>
 </p>
 
 <br>
 
 To validate that Random Forest’s strong performance was not the result of a favorable data split, I performed 5-fold cross-validation. This approach ensures that every observation is used for both training and validation, and provides a more robust estimate of real-world performance. Cross-validation is a resampling technique used to assess how a model generalizes to unseen data. Specifically, the training data is partitioned into five equally sized folds. In each round, the model is trained on four folds and validated on the remaining one. This process is repeated five times so that each fold serves as the validation set once. The resulting F1 scores are then averaged to estimate the model’s expected performance on new data. This approach helps guard against overfitting by ensuring that our evaluation is not biased by any particular train-test split and provides a more reliable estimate of the model’s real-world predictive capability.
 
+<br>
+
+<p align="center">
+ <img src="./images/images/5foldscore.png" alt="5foldscore" width="400" height="700"/>
+</p>
+
+<br>
+
  The average weighted F1 score across folds was 0.950, but one fold showed notably lower performance (0.794), resulting in a wider 95% confidence interval of [0.840, 1.000]. This suggests that while the model performs well on average, performance may degrade under certain data partitions, possibly due to class imbalance or underrepresented feature combinations in some folds.
 
 Logistic Regression has the highest number of false positives and slightly more false negatives than Random Forest. Decision Tree shows relatively balanced performance but still makes more mistakes than Random Forest. Random Forest achieves the best overall trade-off, minimizing both types of errors and suggesting stronger generalization across defect prediction.
 
+<br>
+
+<p align="center">
+ <img src="./images/images/Pos_Neg_results.png" alt="Pos_Neg_results" width="400" height="700"/>
+</p>
+
+<br>
+
 To evaluate each model’s ability to discriminate between defective and non-defective components, I computed the ROC (Receiver Operating Characteristic) curves and corresponding AUC (Area Under Curve) values. ROC-AUC assesses how well the models separate the two classes across all classification thresholds.These values suggest that all three models are reasonably effective at distinguishing between classes, with Random Forest offering the best overall discrimination ability.
 
+<br>
+
+<p align="center">
+ <img src="./images/images/ROC.png" alt="ROC" width="400" height="700"/>
+</p>
+
+<br>
+
 However, because our dataset is heavily imbalanced (most parts are defective), Precision-Recall (PR) curves provide a more informative measure. PR curves emphasize performance on the minority class (low-defect parts), where recall (sensitivity) and precision are most relevant.
+
+<br>
+
+<p align="center">
+ <img src="./images/images/PRcurve.png" alt="PRcurve" width="400" height="700"/>
+</p>
+
+<br>
 
 While the average precision (AP) scores for all three models were similarly high (RF = 0.93, DT = 0.94, LR = 0.93), the shape of each model’s Precision-Recall (PR) curve reveals important behavioral differences across classification thresholds.
 
@@ -320,6 +352,14 @@ Beyond raw performance metrics, our results also reflect broader statistical pro
 The Decision Tree model captured nonlinear and interaction effects through a sequence of rule-based splits. Initially, the tree grew to a depth of 24 with 141 leaves, which reflects a highly specific partitioning of the feature space. To assess whether this complexity was necessary, we applied hyperparameter tuning and retrained the model with a maximum depth of 3. Surprisingly, this pruned version retained the same F1 score and classification metrics as the original despite being much simpler. This suggests that most of the predictive power was concentrated in the first few splits involving QualityScore, DefectRate, ProductionVolume, and MaintenanceHours. Deeper branches added little to no additional generalization. In practice, this makes the pruned tree a strong candidate because it maintains interpretability, avoids overfitting, and performs on par with the full-depth version.
 Random Forest mitigates this by combining many decision trees trained on bootstrapped samples and random feature subsets. This averaging effect reduces variance while retaining the ability to model nonlinear effects. Our feature importance results showed that the same key variables were consistently influential across trees. This ensemble stability and the model's strong performance across all folds suggest excellent generalization. The broader pattern here is that Random Forest's ability to model complex, interacting feature effects without imposing strong distributional assumptions makes it especially suited to our dataset, which likely contains nonlinearity and threshold effects.
 Permutation importance analysis showed strong agreement between Logistic Regression and Random Forest on which features drive model predictions. Both models identified MaintenanceHours, DefectRate, QualityScore, and ProductionVolume as the most important variables and consistently ranked them the highest. Importantly, both models assigned near-zero importance to all other features.
+
+<br>
+
+<p align="center">
+ <img src="./images/images/Permutations.png" alt="Permutations" width="400" height="700"/>
+</p>
+
+<br>
 
 This mutual sparsity is significant. It suggests that despite differing model architectures and assumptions, both algorithms converge on the same core subset of features as meaningful predictors of defects. Logistic Regression arrives at this via linear coefficients (odds ratios), while Random Forest confirms it through aggregated decision paths.
 The lack of importance for remaining variables across both models indicates that they do not carry substantial predictive signals in this dataset (at least not in a form detectable by either model). This convergence enhances confidence in the robustness of the selected top features and underscores that feature selection would likely improve both model simplicity and interpretability without sacrificing performance.
