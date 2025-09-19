@@ -393,7 +393,7 @@ Ensure you have the following installed:
    ```
 5. Open the `.ipynb` file and run the cells sequentially.
 
-## How to Use the Project
+## *️⃣ How to Use the Project
 1. Run all notebook cells sequentially to preprocess data, analyze trends, and generate visualizations.
 2. Review SQL query results for defect rate analysis.
 3. Adjust SQL queries and machine learning hyperparameters to explore further optimizations.
