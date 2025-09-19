@@ -1,5 +1,4 @@
-# 📊 Machine Learning and Statistics:
-Manufacturing Defect Analysis & Optimization
+# 📊 Machine Learning and Statistics: Manufacturing Defect Analysis & Optimization
 
 ## 1️⃣ Introduction
 In modern manufacturing systems, early detection of defective components is critical for maintaining quality and minimizing downstream costs. If a model can accurately identify defective parts, it can flag them for manual inspection and prevent failures downstream. However, choosing the right model isn’t just trial and error. It requires understanding the structure of the data and the behavior of different algorithms under the same conditions.
