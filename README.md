@@ -290,7 +290,7 @@ The Random Forest model outperforms both Logistic Regression and Decision Tree m
 <br>
 
 <p align="center">
- <img src="./images/images/Accuracy.png" alt="Accuracy" width="500" height="500"/>
+ <img src="./images/images/Accuracy.png" alt="Accuracy" width="700" height="500"/>
 </p>
 
 <br>
@@ -312,7 +312,7 @@ Logistic Regression has the highest number of false positives and slightly more 
 <br>
 
 <p align="center">
- <img src="./images/images/Pos_Neg_results.png" alt="Pos_Neg_results" width="400" height="700"/>
+ <img src="./images/images/Pos_Neg_results.png" alt="Pos_Neg_results" width="700" height="400"/>
 </p>
 
 <br>
@@ -322,7 +322,7 @@ To evaluate each model’s ability to discriminate between defective and non-def
 <br>
 
 <p align="center">
- <img src="./images/images/ROC.png" alt="ROC" width="400" height="700"/>
+ <img src="./images/images/ROC.png" alt="ROC" width="700" height="700"/>
 </p>
 
 <br>
@@ -332,7 +332,7 @@ However, because our dataset is heavily imbalanced (most parts are defective), P
 <br>
 
 <p align="center">
- <img src="./images/images/PRcurve.png" alt="PRcurve" width="400" height="700"/>
+ <img src="./images/images/PRcurve.png" alt="PRcurve" width="700" height="700"/>
 </p>
 
 <br>
@@ -356,7 +356,7 @@ Permutation importance analysis showed strong agreement between Logistic Regress
 <br>
 
 <p align="center">
- <img src="./images/images/Permutations.png" alt="Permutations" width="400" height="700"/>
+ <img src="./images/images/Permutations.png" alt="Permutations" width="700" height="700"/>
 </p>
 
 <br>
