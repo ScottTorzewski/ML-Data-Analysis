@@ -37,11 +37,33 @@ To further understand the structure of the dataset, I computed confidence interv
 
 Out of 3,240 total parts, 2,723 were labeled as high-defect and 517 as low-defect, yielding an observed defect rate of 84.0%. The 95% confidence interval for the high-defect rate was [82.7%, 85.4%], while the interval for low-defect parts was [14.6%, 17.3%]. These results confirm a substantial class imbalance in the dataset. This imbalance has important implications for model evaluation. Metrics like accuracy would be misleading, as a model could achieve over 80% accuracy by predicting only the majority class. This further validates my decision to focus on F1 score, precision, and recall as evaluation metrics that better capture model effectiveness in imbalanced classification settings (which will be discussed later).
 
-Since DefectStatus is either 0 or 1, plotting it directly against continuous features would result in meaningless or noisy visualizations. To solve this, I aggregated the data by computing the defect percentage within bins or categories of each variable. For categorical features like MaintenanceHours and SafetyIncidents, it groups the data by each unique value and calculates the proportion of defective batches, effectively summarizing how defect rates vary across discrete levels. For continuous variables, the code bins each feature into 5 equal-width intervals, then computes the defect rate within each bin. This binning allows continuous features to be discretized and analyzed in a format compatible with continuous scatterplots, where the x-axis represents feature ranges and the y-axis shows corresponding defect percentages. The resulting defect percentage values enable visual trend comparisons across features, even though the underlying model is binary classification. This allowed me to identify which variables may be predictive or correlated with quality issues in the manufacturing process. 
+<br>
 
-Notable relationships between defect status and other variables are shown below. MaintenanceHours, SupplierQuality, AdditiveMaterialCost, WorkerProductivity, ProductionVolume, and ProductionCost all had a positive correlation with defect status. On the other hand, SafteyIncidents and QualityScore had a negative correlation with defect status.
+<p align="center">
+ <img src="./images/images/classimbalance.png" alt="classimbalance" width="400" height="600"/>
+</p>
+
+<br>
+
+Since DefectStatus is either 0 or 1, plotting it directly against continuous features would result in meaningless or noisy visualizations. To solve this, I aggregated the data by computing the defect percentage within bins or categories of each variable. For categorical features like MaintenanceHours and SafetyIncidents, it groups the data by each unique value and calculates the proportion of defective batches. This effectively summarizes how defect rates vary across discrete levels. For continuous variables, the code bins each feature into 5 equal-width intervals and computes the defect rate within each bin. This binning allows continuous features to be discretized and analyzed in a format compatible with continuous scatterplots. The x-axis represents feature ranges and the y-axis shows corresponding defect percentages. The resulting defect percentage values enable visual trend comparisons across features even though the underlying model is binary classification. This allowed me to identify which variables may be predictive or correlated with quality issues in the manufacturing process. Notable relationships between defect status and other variables are shown below. MaintenanceHours, SupplierQuality, AdditiveMaterialCost, WorkerProductivity, ProductionVolume, and ProductionCost all had a positive correlation with defect status. On the other hand, SafteyIncidents and QualityScore had a negative correlation with defect status.
+
+<br>
+
+<p align="center">
+ <img src="./images/images/trendline.png" alt="trendline" width="400" height="600"/>
+</p>
+
+<br>
 
 Kernel Density Estimation (KDE) plots were used to visualize how the distribution of key predictors differs between low/high-defect parts. For instance, MaintenanceHours and ProductionVolume showed clear separation between classes, with high-defect parts concentrated in higher ranges. In contrast, QualityScore showed the inverse relationship, where low-defect parts were more common at higher quality scores. The other variables showed little separation. These visualizations provide additional confirmation of the patterns later learned by our models, which reinforces the predictive utility of these features.
+
+<br>
+
+<p align="center">
+ <img src="./images/images/KDE.png" alt="KDE" width="400" height="600"/>
+</p>
+
+<br>
 
 I used chi-squared tests to determine if there was statistical significance for each variable independently. 
 
