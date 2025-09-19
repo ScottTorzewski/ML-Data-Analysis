@@ -126,8 +126,7 @@ False Negatives (Type 2 Error): This occurs when the model fails to catch a part
 ## 4️⃣ Model Comparison
 This section evaluates three classification algorithms (Logistic Regression, Decision Tree, Random Forest) to determine which model most accurately predicts defective manufacturing components. The purpose is not to develop new predictive methods but to assess the comparative performance of standard classifiers on a shared dataset. Each model is trained on the same training data (80% of data) and tested on the same shared test split (20% of data) for a fair comparison.
 
-Logistic Regression (LR)
-What It Is: This is a linear model that estimates the probability of a binary outcome. In this case, it estimates the likelihood of DefectStatus = 1 (i.e., a high-defect component) as a function of multiple predictor variables. It assumes a linear relationship between the predictors and the log-odds of the outcome.
+Logistic Regression (LR): This is a linear model that estimates the probability of a binary outcome. In this case, it estimates the likelihood of DefectStatus = 1 (i.e., a high-defect component) as a function of multiple predictor variables. It assumes a linear relationship between the predictors and the log-odds of the outcome.
 
 <br>
 
@@ -188,8 +187,7 @@ To evaluate the quality of probability estimates from the Logistic Regression mo
 
 Logistic regression offers an interpretable baseline model that clearly reveals which features are most predictive of defects in terms of directional influence (via odds ratios). However, it does not account for nonlinear interactions or higher-order dependencies between features, which motivates the exploration of more flexible models like decision trees and random forests.
 
-Decision Tree (DT)
-What It Is: A non-parametric model that recursively splits the data into subgroups based on feature values, forming a tree-like structure. Each split maximizes information gain.
+Decision Tree (DT): A non-parametric model that recursively splits the data into subgroups based on feature values, forming a tree-like structure. Each split maximizes information gain.
 Model Fit: The Decision Tree model was trained using all available features in the dataset to classify parts as high or low defect. At first, no hyperparameters were applied, meaning the tree was allowed to grow fully until all leaves were pure or met the default split conditions. Upon inspecting the trained model, the tree had a maximum depth of 24 and 141 leaves. A diagram of the tree was also generated to visualize the hierarchical decision process.
 
 <br>
@@ -232,8 +230,7 @@ The confusion matrix below summarizes the model’s classification performance o
 
 This result indicates the tree is reasonably accurate, correctly identifying a majority of both low- and high-defect parts, though it still misclassifies a non-negligible number of low-defect cases.
 
-Random Forest (RF)
-What It Is: An ensemble model that builds many decision trees on bootstrapped samples and averages their predictions (majority voting for classification). It introduces randomness in feature selection to reduce overfitting and improve generalization.
+Random Forest (RF): An ensemble model that builds many decision trees on bootstrapped samples and averages their predictions (majority voting for classification). It introduces randomness in feature selection to reduce overfitting and improve generalization.
 Model Fit: The Random Forest classifier was trained using the same feature set, leveraging 100 randomized decision trees to improve predictive performance and reduce overfitting. Unlike a single decision tree, the ensemble aggregates multiple weak learners to produce a more stable and generalizable prediction. A grid search was performed to find the best parameters for the Random Forest model, yielding:
 
 <br>
