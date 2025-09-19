@@ -80,11 +80,35 @@ The test revealed a strong association between MaintenanceHours, ProductionVolum
 ## 3️⃣ Evaluation Metric
 To measure model performance, I prioritized F1 Score over simple accuracy. 
 
+<br>
+
+<p align="center">
+ <img src="./images/images/F1equation.png" alt="F1equation" width="500" height="700"/>
+</p>
+
+<br>
+
 While accuracy measures the overall proportion of correct predictions, it can be misleading in imbalanced datasets like ours, where the majority of components are defective. F1 Score, the harmonic mean of precision and recall, offers a more balanced view. To support this choice, I also report precision and recall individually, providing additional insight into each model’s tradeoffs. In this case:
 
 Precision: The proportion of predicted defective components that are actually defective. It answers: When the model predicts a defect, how often is it correct?
 
+<br>
+
+<p align="center">
+ <img src="./images/images/Precision.png" alt="precision" width="500" height="700"/>
+</p>
+
+<br>
+
 Recall: The proportion of actual defective components that were correctly identified. It answers: Of all real defects, how many did the model catch?
+
+<br>
+
+<p align="center">
+ <img src="./images/images/recall.png" alt="recall" width="500" height="700"/>
+</p>
+
+<br>
 
 False Positives (Type 1 Error): This occurs when a good part is flagged as defective. There is wasted time and resources on unnecessary inspection.
 False Negatives (Type 2 Error): This occurs when the model fails to catch a part with a real defect. There are faulty components allowed to reach production, which is potentially more costly.
