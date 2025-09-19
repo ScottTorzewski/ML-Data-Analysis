@@ -70,7 +70,7 @@ I used chi-squared tests to determine if there was statistical significance for 
 <br>
 
 <p align="center">
- <img src="./images/images/chisquare.png" alt="chisquare" width="600" height="800"/>
+ <img src="./images/images/chisquare.png" alt="chisquare" width="500" height="700"/>
 </p>
 
 <br>
