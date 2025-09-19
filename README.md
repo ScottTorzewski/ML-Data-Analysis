@@ -60,9 +60,11 @@ Kernel Density Estimation (KDE) plots were used to visualize how the distributio
 <br>
 
 <p align="center">
+ <img src="./images/images/KDE1.png" alt="KDE1" width="800" height="800"/>
+</p>
+<p align="center">
  <img src="./images/images/KDE.png" alt="KDE" width="800" height="800"/>
 </p>
-
 <br>
 
 I used chi-squared tests to determine if there was statistical significance for each variable independently. 
@@ -154,7 +156,7 @@ Model Fit: All numeric and categorical features (excluding the target) were stan
 <br>
 
 <p align="center">
- <img src="./images/images/coefficients.png" alt="coefficients" width="500" height="700"/>
+ <img src="./images/images/coefficients.png" alt="coefficients" width="400" height="700"/>
 </p>
 
 <br>
@@ -234,25 +236,64 @@ Random Forest (RF)
 What It Is: An ensemble model that builds many decision trees on bootstrapped samples and averages their predictions (majority voting for classification). It introduces randomness in feature selection to reduce overfitting and improve generalization.
 Model Fit: The Random Forest classifier was trained using the same feature set, leveraging 100 randomized decision trees to improve predictive performance and reduce overfitting. Unlike a single decision tree, the ensemble aggregates multiple weak learners to produce a more stable and generalizable prediction. A grid search was performed to find the best parameters for the Random Forest model, yielding:
 
-Total Fits:
-bootstrap:
-class_weight: 
+<br>
+
+<p align="center">
+ <img src="./images/images/5foldscore.png" alt="5foldscore" width="700" height="700"/>
+</p>
+
+<br>
+
+bootstrap: resampling technique that generates multiple simulated datasets by repeatedly drawing samples with replacement from a single original dataset. 
+class_weight: setting to counteract imbalanced data by assigning higher importance to the minority class and lower importance to the majority class, penalizing the model heavily for misclassifying minority examples.
 max_depth: the maximum depth of each tree; limits how many splits a tree can make, controlling model complexity and overfitting. 
-max_features: 
+max_features: consider a random subset of features equal to the square root of the total number of features to determine the best split at each node.
 min_samples_leaf: the minimum number of samples required to be at a leaf node; prevents small, noisy splits by enforcing a minimum leaf size.
 min_samples_split: the minimum number of samples required to split an internal node; higher values reduce tree branching and can improve generalization.
 n_estimators: the number of decision trees in the forest; more trees generally improve performance but increase training time.
+
 Feature importance analysis revealed that MaintenanceHours, DefectRate, QualityScore, and ProductionVolume were the most informative predictors, consistent with patterns seen in the standalone decision tree model.
+
+<br>
+
+<p align="center">
+ <img src="./images/images/RFfeatureimportance.png" alt="RFfeatures" width="700" height="700"/>
+</p>
+
+<br>
 
 The confusion matrix below summarizes the model’s classification performance on the test set:
 
-This shows that the Random Forest achieved the strongest separation between defect classes among the three models, where it only misclassified 4 high-defect parts and 28 low-defect parts. This suggests it balances precision and recall well, even in the presence of class imbalance.
+<br>
 
+<p align="center">
+ <img src="./images/images/RFconfusion.png" alt="RFconfusion" width="700" height="700"/>
+</p>
+
+<br>
+
+This shows that the Random Forest achieved the strongest separation between defect classes among the three models, where it only misclassified 4 high-defect parts and 28 low-defect parts. This suggests it balances precision and recall well even in the presence of class imbalance.
 
 ## 5️⃣ Results
 This section compares the predictive performance of three established classification models (Logistic Regression, Decision Tree, Random Forest) on a shared defect classification task. To clarify, the goal is not to create new models but to evaluate how well each performs given the same data inputs and output labels (DefectStatus = 0 or 1).The following table summarizes the performance of each model on the test set:
 
+<br>
+
+<p align="center">
+ <img src="./images/images/PRF1results.png" alt="PRF1results" width="700" height="700"/>
+</p>
+
+<br>
+
 The Random Forest model outperforms both Logistic Regression and Decision Tree models in all three metrics. As expected, accuracy is also high for all three models.
+
+<br>
+
+<p align="center">
+ <img src="./images/images/Accuracy.png" alt="Accuracy" width="700" height="700"/>
+</p>
+
+<br>
 
 To validate that Random Forest’s strong performance was not the result of a favorable data split, I performed 5-fold cross-validation. This approach ensures that every observation is used for both training and validation, and provides a more robust estimate of real-world performance. Cross-validation is a resampling technique used to assess how a model generalizes to unseen data. Specifically, the training data is partitioned into five equally sized folds. In each round, the model is trained on four folds and validated on the remaining one. This process is repeated five times so that each fold serves as the validation set once. The resulting F1 scores are then averaged to estimate the model’s expected performance on new data. This approach helps guard against overfitting by ensuring that our evaluation is not biased by any particular train-test split and provides a more reliable estimate of the model’s real-world predictive capability.
 
