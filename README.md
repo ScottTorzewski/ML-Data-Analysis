@@ -44,7 +44,7 @@ Recall: The proportion of actual defective components that were correctly identi
 False Positives (Type 1 Error): This occurs when a good part is flagged as defective. There is wasted time and resources on unnecessary inspection.
 False Negatives (Type 2 Error): This occurs when the model fails to catch a part with a real defect. There are faulty components allowed to reach production, which is potentially more costly.
 
-## Model Comparison
+## 4️⃣ Model Comparison
 This section evaluates three classification algorithms (Logistic Regression, Decision Tree, Random Forest) to determine which model most accurately predicts defective manufacturing components. The purpose is not to develop new predictive methods but to assess the comparative performance of standard classifiers on a shared dataset. Each model is trained on the same training data (80% of data) and tested on the same shared test split (20% of data) for a fair comparison.
 
 Logistic Regression (LR)
@@ -100,7 +100,7 @@ The confusion matrix below summarizes the model’s classification performance o
 This shows that the Random Forest achieved the strongest separation between defect classes among the three models, where it only misclassified 4 high-defect parts and 28 low-defect parts. This suggests it balances precision and recall well, even in the presence of class imbalance.
 
 
-## Results
+## 5️⃣ Results
 This section compares the predictive performance of three established classification models (Logistic Regression, Decision Tree, Random Forest) on a shared defect classification task. To clarify, the goal is not to create new models but to evaluate how well each performs given the same data inputs and output labels (DefectStatus = 0 or 1).The following table summarizes the performance of each model on the test set:
 
 The Random Forest model outperforms both Logistic Regression and Decision Tree models in all three metrics. As expected, accuracy is also high for all three models.
@@ -125,7 +125,7 @@ Random Forest:
 The RF curve mirrors LR early on but maintains elevated precision for a longer portion of the curve before tapering off. This indicates that RF maintains a better balance of precision and recall over a wider threshold range, likely due to its ensemble nature smoothing out noisy decisions from individual trees.
 These curve profiles highlight how the models handle ranking confidence differently. While AP summarizes performance, the shape of the curve is critical for decision-making in operational contexts. For example, if the goal is to catch the majority of defects without triggering excessive false alarms, RF or DT may be preferred over LR due to their stability across thresholds.
 
-##  Discussion
+##  6️⃣ Discussion
 Beyond raw performance metrics, our results also reflect broader statistical properties of the models and the data. Logistic Regression, being a linear model, had limited capacity to capture nonlinear relationships between features. This likely contributed to its lower F1 score and aligns with the concept of underfitting, where a model with high bias fails to represent the complexity of the data. However, Logistic Regression remains valuable for interpretability: each feature's coefficient provides a direct estimate of how a one-unit change affects the log-odds of a defect, allowing clear insights into predictors like QualityScore, EnergyEfficiency, or WorkerProductivity, all of which showed odds ratios less than 1 in our model.
 The Decision Tree model captured nonlinear and interaction effects through a sequence of rule-based splits. Initially, the tree grew to a depth of 24 with 141 leaves, which reflects a highly specific partitioning of the feature space. To assess whether this complexity was necessary, we applied hyperparameter tuning and retrained the model with a maximum depth of 3. Surprisingly, this pruned version retained the same F1 score and classification metrics as the original despite being much simpler. This suggests that most of the predictive power was concentrated in the first few splits involving QualityScore, DefectRate, ProductionVolume, and MaintenanceHours. Deeper branches added little to no additional generalization. In practice, this makes the pruned tree a strong candidate because it maintains interpretability, avoids overfitting, and performs on par with the full-depth version.
 Random Forest mitigates this by combining many decision trees trained on bootstrapped samples and random feature subsets. This averaging effect reduces variance while retaining the ability to model nonlinear effects. Our feature importance results showed that the same key variables were consistently influential across trees. This ensemble stability and the model's strong performance across all folds suggest excellent generalization. The broader pattern here is that Random Forest's ability to model complex, interacting feature effects without imposing strong distributional assumptions makes it especially suited to our dataset, which likely contains nonlinearity and threshold effects.
@@ -134,13 +134,13 @@ Permutation importance analysis showed strong agreement between Logistic Regress
 This mutual sparsity is significant. It suggests that despite differing model architectures and assumptions, both algorithms converge on the same core subset of features as meaningful predictors of defects. Logistic Regression arrives at this via linear coefficients (odds ratios), while Random Forest confirms it through aggregated decision paths.
 The lack of importance for remaining variables across both models indicates that they do not carry substantial predictive signals in this dataset (at least not in a form detectable by either model). This convergence enhances confidence in the robustness of the selected top features and underscores that feature selection would likely improve both model simplicity and interpretability without sacrificing performance.
 
-## Conclusion
+## 7️⃣ Conclusion
 This project was not about building new algorithms, and instead evaluating how well three existing models (Logistic Regression, Decision Tree, Random Forest) predict manufacturing defects on a shared dataset. All models were trained and tested under identical conditions, and performance was assessed using F1 score, precision, recall, and confusion matrices.
 The results show that while Logistic Regression offers transparency, it struggles with nonlinear or interaction effects. Decision Trees add flexibility but can overfit without constraints. Random Forest consistently delivered the best performance, especially in terms of generalization and error balance. That said, the tradeoff is interpretability, as RF is harder to explain in operational settings.
 I have deliberately framed this as a comparative assessment, not a model development exercise. The same features consistently emerged as most important across statistical tests and model outputs, which reinforced their relevance. While performance was strong on this simulated data, deploying any of these models in a real manufacturing environment would require further steps like validation under sensor noise and shifting data distributions.
 Ultimately, our analysis suggests that if the goal is reliable, generalizable prediction, Random Forest is the best option, but interpretability/model simplicity and real-world constraints should guide final deployment decisions.
 
-## ✅ How to Install and Run the Project
+## *️⃣ How to Install and Run the Project
 ### Prerequisites
 Ensure you have the following installed:
 - Python 3
