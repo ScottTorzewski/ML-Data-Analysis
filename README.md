@@ -154,7 +154,7 @@ Model Fit: All numeric and categorical features (excluding the target) were stan
 <br>
 
 <p align="center">
- <img src="./images/images/coefficients.png" alt="coefficients" width="700" height="700"/>
+ <img src="./images/images/coefficients.png" alt="coefficients" width="500" height="700"/>
 </p>
 
 <br>
@@ -176,17 +176,57 @@ The model made 39 correct predictions of low-defect parts (true negatives) and 5
 
 To evaluate the quality of probability estimates from the Logistic Regression model, I plotted a calibration curve. The curve generally aligns with the diagonal, indicating that the predicted probabilities are reasonably well-calibrated. However, there is slight underconfidence in the lower probability ranges, which suggests that when the model predicts a low chance of a defect, the actual frequency of defects is marginally higher than predicted. This is a common issue in imbalanced datasets. Overall, the model provides interpretable and relatively trustworthy probability outputs, making it useful in cost-sensitive applications where decision thresholds matter.
 
+<br>
+
+<p align="center">
+ <img src="./images/images/LRCalibration.png" alt="calibration" width="700" height="700"/>
+</p>
+
+<br>
+
 Logistic regression offers an interpretable baseline model that clearly reveals which features are most predictive of defects in terms of directional influence (via odds ratios). However, it does not account for nonlinear interactions or higher-order dependencies between features, which motivates the exploration of more flexible models like decision trees and random forests.
 
 Decision Tree (DT)
 What It Is: A non-parametric model that recursively splits the data into subgroups based on feature values, forming a tree-like structure. Each split maximizes information gain.
 Model Fit: The Decision Tree model was trained using all available features in the dataset to classify parts as high or low defect. At first, no hyperparameters were applied, meaning the tree was allowed to grow fully until all leaves were pure or met the default split conditions. Upon inspecting the trained model, the tree had a maximum depth of 24 and 141 leaves. A diagram of the tree was also generated to visualize the hierarchical decision process.
 
-Then, I restricted the decision tree to a maximum depth of 3 to reduce overfitting and improve interpretability. Interestingly, the F1 score remained unchanged compared to the fully grown tree, suggesting that the model's most informative splits occur within the top three levels. This indicates that a simpler tree can achieve comparable performance, capturing the dominant predictive patterns without relying on deeper, potentially overfit branches.
+<br>
+
+<p align="center">
+ <img src="./images/images/DT1.png" alt="DT1" width="700" height="700"/>
+</p>
+
+<br>
+
+Then, I restricted the decision tree to a maximum depth of 3 to reduce overfitting and improve interpretability. Interestingly, the F1 score remained unchanged compared to the fully grown tree, which suggests that the model's most informative splits occur within the top three levels. This indicates that a simpler tree can achieve comparable performance and capture the dominant predictive patterns without relying on deeper, potentially overfit branches.
+
+<br>
+
+<p align="center">
+ <img src="./images/images/DT2.png" alt="DT2" width="700" height="700"/>
+</p>
+
+<br>
 
 Feature importance analysis showed that QualityScore, DefectRate, ProductionVolume, and MaintenanceHours were the most influential predictors of defect status, suggesting these features are highly informative for rule-based classification.
 
+<br>
+
+<p align="center">
+ <img src="./images/images/DTfeatures.png" alt="DTfeatures" width="700" height="700"/>
+</p>
+
+<br>
+
 The confusion matrix below summarizes the model’s classification performance on the test set:
+
+<br>
+
+<p align="center">
+ <img src="./images/images/DTconfusion.png" alt="DTconfusion" width="700" height="700"/>
+</p>
+
+<br>
 
 This result indicates the tree is reasonably accurate, correctly identifying a majority of both low- and high-defect parts, though it still misclassifies a non-negligible number of low-defect cases.
 
