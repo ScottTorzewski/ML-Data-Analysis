@@ -67,6 +67,14 @@ Kernel Density Estimation (KDE) plots were used to visualize how the distributio
 
 I used chi-squared tests to determine if there was statistical significance for each variable independently. 
 
+<br>
+
+<p align="center">
+ <img src="./images/images/chisqaure.png" alt="chisquare" width="600" height="800"/>
+</p>
+
+<br>
+
 The test revealed a strong association between MaintenanceHours, ProductionVolume and DefectStatus (p < 0.05), suggesting that scheduled maintenance and the volume of  total output play a significant role in preventing or mitigating defects. In contrast, the other variables showed no significant association (p > 0.05), indicating that they are likely independent of defect occurrence in this dataset. These results were also somewhat consistent with our KDE distribution plots, which showed clear separation between high-defect and low-defect groups for MaintenanceHours and ProductionVolume – the same variables with the lowest p-values. This convergence of statistical and visual evidence strengthens the case for their predictive relevance. However, due to the limited sample size, these tests have low statistical power, meaning some real effects could go undetected. Furthermore, chi-squared tests only evaluate individual associations and ignore interactions or nonlinear effects. To account for potential interdependencies between variables and to better capture their combined predictive power, I will apply powerful model approaches.
 
 ## 3️⃣ Evaluation Metric
