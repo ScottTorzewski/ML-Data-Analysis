@@ -236,7 +236,7 @@ Model Fit: The Random Forest classifier was trained using the same feature set, 
 <br>
 
 <p align="center">
- <img src="./images/images/RFresults.png" alt="RFresults" width="400" height="700"/>
+ <img src="./images/images/RFresults.png" alt="RFresults" width="700" height="700"/>
 </p>
 
 <br>
@@ -277,7 +277,7 @@ This section compares the predictive performance of three established classifica
 <br>
 
 <p align="center">
- <img src="./images/images/PRF1results.png" alt="PRF1results" width="700" height="700"/>
+ <img src="./images/images/PRF1results.png" alt="PRF1results" width="700" height="500"/>
 </p>
 
 <br>
@@ -287,7 +287,7 @@ The Random Forest model outperforms both Logistic Regression and Decision Tree m
 <br>
 
 <p align="center">
- <img src="./images/images/Accuracy.png" alt="Accuracy" width="700" height="500"/>
+ <img src="./images/images/Accuracy.png" alt="Accuracy" width="600" height="400"/>
 </p>
 
 <br>
@@ -297,7 +297,7 @@ To validate that Random Forest’s strong performance was not the result of a fa
 <br>
 
 <p align="center">
- <img src="./images/images/5foldscore.png" alt="5foldscore" width="400" height="700"/>
+ <img src="./images/images/5foldscore.png" alt="5foldscore" width="400" height="600"/>
 </p>
 
 <br>
@@ -309,7 +309,7 @@ Logistic Regression has the highest number of false positives and slightly more 
 <br>
 
 <p align="center">
- <img src="./images/images/Pos_Neg_results.png" alt="Pos_Neg_results" width="700" height="400"/>
+ <img src="./images/images/Pos_Neg_results.png" alt="Pos_Neg_results" width="700" height="500"/>
 </p>
 
 <br>
