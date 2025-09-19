@@ -165,7 +165,6 @@ Ensure you have the following installed:
 
 ## References
 🔗 Original Dataset: [Kaggle - Predicting Manufacturing Defects Dataset](https://www.kaggle.com/datasets/rabieelkharoua/predicting-manufacturing-defects-dataset/data)
-scikit-learn documentation: https://scikit-learn.org
 
 ## License
 This project is licensed under the **GNU General Public License v3.0**. See the LICENSE file for details.
