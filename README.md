@@ -50,7 +50,7 @@ Since DefectStatus is either 0 or 1, plotting it directly against continuous fea
 <br>
 
 <p align="center">
- <img src="./images/images/trendline.png" alt="trendline" width="600" height="800"/>
+ <img src="./images/images/trendline.png" alt="trendline" width="700" height="900"/>
 </p>
 
 <br>
@@ -60,7 +60,7 @@ Kernel Density Estimation (KDE) plots were used to visualize how the distributio
 <br>
 
 <p align="center">
- <img src="./images/images/KDE.png" alt="KDE" width="700" height="700"/>
+ <img src="./images/images/KDE.png" alt="KDE" width="800" height="800"/>
 </p>
 
 <br>
