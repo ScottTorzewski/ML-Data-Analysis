@@ -95,7 +95,7 @@ Precision: The proportion of predicted defective components that are actually de
 <br>
 
 <p align="center">
- <img src="./images/images/Precision.png" alt="precision" width="500" height="700"/>
+ <img src="./images/images/Precision.png" alt="precision" width="700" height="700"/>
 </p>
 
 <br>
@@ -105,13 +105,21 @@ Recall: The proportion of actual defective components that were correctly identi
 <br>
 
 <p align="center">
- <img src="./images/images/recall.png" alt="recall" width="500" height="700"/>
+ <img src="./images/images/recall.png" alt="recall" width="700" height="700"/>
 </p>
 
 <br>
 
 False Positives (Type 1 Error): This occurs when a good part is flagged as defective. There is wasted time and resources on unnecessary inspection.
 False Negatives (Type 2 Error): This occurs when the model fails to catch a part with a real defect. There are faulty components allowed to reach production, which is potentially more costly.
+
+<br>
+
+<p align="center">
+ <img src="./images/images/Outcomes_Metrics.png" alt="outcomes" width="700" height="700"/>
+</p>
+
+<br>
 
 ## 4️⃣ Model Comparison
 This section evaluates three classification algorithms (Logistic Regression, Decision Tree, Random Forest) to determine which model most accurately predicts defective manufacturing components. The purpose is not to develop new predictive methods but to assess the comparative performance of standard classifiers on a shared dataset. Each model is trained on the same training data (80% of data) and tested on the same shared test split (20% of data) for a fair comparison.
