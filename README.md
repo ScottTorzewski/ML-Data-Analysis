@@ -1,5 +1,5 @@
 # 📊 Machine Learning and Data Analysis: Manufacturing Defect Analysis & Optimization
-
+---
 ## 1️⃣ Introduction
 In modern manufacturing systems, early detection of defective components is critical for maintaining quality and minimizing downstream costs. If a model can accurately identify defective parts, it can flag them for manual inspection and prevent failures downstream. However, choosing the right model isn’t just trial and error. It requires understanding the structure of the data and the behavior of different algorithms under the same conditions.
 This project evaluates three standard classification models — Logistic Regression, Decision Tree, and Random Forest — to determine which performs best on a shared defect prediction task. I emphasize exploratory data analysis as a foundation for model selection by using visual and statistical tools to identify patterns, correlations, and potential sources of model error. The goal is not to build new models, but to assess which existing method is most effective for this classification problem and why. The Jupyter Notebook IDE is utilized with Python and SQL to extrapolate and analyze the data. You can find the full code above.
