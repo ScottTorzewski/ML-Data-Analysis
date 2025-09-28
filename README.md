@@ -1,4 +1,7 @@
-# 📊 Machine Learning and Data Analysis: Manufacturing Defect Analysis & Optimization
+# 📊 Computational Methods for Data Analysis
+
+## *️⃣ Motivation
+Alongside my work in hardware and biomedical systems, I have explored modeling and data analysis as a way to interpret and validate complex engineering problems. I am interested in how statistical tools and machine learning methods can be used not only to improve prediction, but also to understand the structure of data and the behavior of systems. My projects emphasize exploratory analysis and model evaluation with the goal of testing hypotheses and guiding design decisions. For me, the challenge is in bridging raw data with meaningful conclusions to ensure that computational results support and extend real engineering insight. The projects highlighted here show how I apply these methods to extract structure from data and connect analysis back to engineering applications.
 
 ## 1️⃣ Introduction
 In modern manufacturing systems, early detection of defective components is critical for maintaining quality and minimizing downstream costs. If a model can accurately identify defective parts, it can flag them for manual inspection and prevent failures downstream. However, choosing the right model isn’t just trial and error. It requires understanding the structure of the data and the behavior of different algorithms under the same conditions.
