@@ -372,42 +372,6 @@ The results show that while Logistic Regression offers transparency, it struggle
 I have deliberately framed this as a comparative assessment, not a model development exercise. The same features consistently emerged as most important across statistical tests and model outputs, which reinforced their relevance. While performance was strong on this simulated data, deploying any of these models in a real manufacturing environment would require further steps like validation under sensor noise and shifting data distributions.
 Ultimately, our analysis suggests that if the goal is reliable, generalizable prediction, Random Forest is the best option, but interpretability/model simplicity and real-world constraints should guide final deployment decisions.
 
-## *️⃣ How to Install and Run the Project
-### Prerequisites
-Ensure you have the following installed:
-- Python 3
-- Jupyter Notebook
-- PostgreSQL
-
-### Installation Steps
-1. Clone the Repository:
-   ```bash
-   git clone https://github.com/ScottTorzewski/Manufacture-Defect-ML-Project.git
-   ```
-2. Navigate to the Project Directory:
-   ```bash
-   cd Manufacture-Defect-ML-Project
-   ```
-3. Install Dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. Launch Jupyter Notebook:
-   ```bash
-   jupyter notebook
-   ```
-5. Open the `.ipynb` file and run the cells sequentially.
-
-## *️⃣ How to Use the Project
-1. Run all notebook cells sequentially to preprocess data, analyze trends, and generate visualizations.
-2. Review SQL query results for defect rate analysis.
-3. Adjust SQL queries and machine learning hyperparameters to explore further optimizations.
-4. Experiment with alternative ML models.
-
 ## References
 🔗 Original Dataset: [Kaggle - Predicting Manufacturing Defects Dataset](https://www.kaggle.com/datasets/rabieelkharoua/predicting-manufacturing-defects-dataset/data)
-
-## License
-This project is licensed under the **GNU General Public License v3.0**. See the LICENSE file for details.
-```
 
