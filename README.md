@@ -1,7 +1,7 @@
 # 📊 Computational Methods for Data Analysis
 
 ## *️⃣ Motivation
-Alongside my work in hardware and biomedical systems, I have explored modeling and data analysis as a way to interpret and validate complex engineering problems. I am interested in how statistical tools and machine learning methods can be used not only to improve prediction, but also to understand the structure of data and the behavior of systems. My projects emphasize exploratory analysis and model evaluation with the goal of testing hypotheses and guiding design decisions. For me, the challenge is in bridging raw data with meaningful conclusions to ensure that computational results support and extend real engineering insight. The projects highlighted here show how I apply these methods to extract structure from data and connect analysis back to engineering applications.
+Alongside my work in electrical and biomedical systems, I have explored modeling and data analysis. I recognize that as hardware technology advances, engineers must be fluent in the systems that interpret the data our hardware produces. I am particularly interested in how statistical tools and machine learning methods can be used not only to improve prediction, but also to understand the structure of data and the behavior of systems. My projects emphasize exploratory analysis and model evaluation with the goal of testing hypotheses and guiding design decisions. For me, the challenge is in bridging raw data with meaningful conclusions to ensure that computational results support and extend real engineering insight. The projects highlighted here show how I apply these methods to extract structure from data and connect analysis back to engineering applications.
 
 ---
 
